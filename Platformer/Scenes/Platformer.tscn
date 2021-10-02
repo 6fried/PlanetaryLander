@@ -1,0 +1,60 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Player/Scenes/PPlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://Lands/Scenes/Land5.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Lands/Scenes/Land11.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Lands/Scenes/Land7.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Lands/Scenes/Land10.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Lands/Scenes/Land3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Lands/Scenes/Land6.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Lands/Scenes/Land8.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Lands/Scenes/Land9.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Lands/Scenes/Land4.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Lands/Scenes/Land1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Lands/Scenes/Land2.tscn" type="PackedScene" id=13]
+
+[node name="Platformer" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 296 )
+scale = Vector2( 1.28805, 1.33929 )
+texture = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 552, 176 )
+
+[node name="Lands" type="Node2D" parent="."]
+
+[node name="Land1" parent="Lands" instance=ExtResource( 12 )]
+position = Vector2( 320, 512 )
+
+[node name="Land2" parent="Lands" instance=ExtResource( 13 )]
+position = Vector2( 56, 488 )
+
+[node name="Land3" parent="Lands" instance=ExtResource( 7 )]
+position = Vector2( 728, 488 )
+
+[node name="Land4" parent="Lands" instance=ExtResource( 11 )]
+position = Vector2( 976, 476 )
+
+[node name="Land5" parent="Lands" instance=ExtResource( 3 )]
+position = Vector2( 1192, 536 )
+
+[node name="Land6" parent="Lands" instance=ExtResource( 8 )]
+position = Vector2( 1312, 518 )
+
+[node name="Land7" parent="Lands" instance=ExtResource( 5 )]
+position = Vector2( 1448, 528 )
+
+[node name="Land8" parent="Lands" instance=ExtResource( 9 )]
+position = Vector2( 1568, 536 )
+
+[node name="Land9" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1688, 518 )
+
+[node name="Land10" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 192, 512 )
+
+[node name="Land11" parent="Lands" instance=ExtResource( 4 )]
+position = Vector2( 494.5, 672 )
