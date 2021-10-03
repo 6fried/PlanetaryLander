@@ -62,11 +62,13 @@ animations = [ {
 extents = Vector2( 320, 240 )
 
 [node name="Coin" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource( 49 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-frame = 11
+frame = 7
 speed_scale = 10.0
 playing = true
 

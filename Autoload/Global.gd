@@ -2,8 +2,8 @@ extends Node
 
 var current_scene = null
 var root = null
-var altitude = 1000
-var coin = false
+var altitude = 0
+var coin = true
 
 func goto_scene(path):
 	root = get_tree().get_root()
@@ -20,7 +20,10 @@ func _deferred_goto_scene(path):
 
 
 func lose():
-	pass
+	goto_scene("res://UI/Scenes/Lost.tscn")
 
 func win():
-	pass
+	goto_scene("res://UI/Scenes/Won.tscn")
+
+func exit_game():
+	get_tree().quit()

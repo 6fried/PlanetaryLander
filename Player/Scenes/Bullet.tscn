@@ -44,6 +44,7 @@ height = 32.0
 
 [node name="Bullet" type="StaticBody2D"]
 rotation = 3.14159
+collision_layer = 2
 script = ExtResource( 29 )
 __meta__ = {
 "_edit_group_": true

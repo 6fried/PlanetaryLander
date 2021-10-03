@@ -5,13 +5,14 @@
 
 [node name="Node2D" type="StaticBody2D"]
 position = Vector2( 568, 304 )
+collision_layer = 4
 script = ExtResource( 2 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -40, 16, -48, 8, -48, -40, -40, -48, -32, -56, -16, -56, -8, -48, 8, -40, 16, -24, 40, -24, 40, -16, 32, 0, 48, 8, 48, 16, 32, 32, 40, 40, 40, 48, 32, 56, -48, 56, -48, 24, -40, 24 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 5.0
 autostart = true
 
 [node name="Sprite" type="Sprite" parent="."]

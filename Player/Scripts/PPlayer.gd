@@ -15,7 +15,7 @@ func _physics_process(delta):
 func get_direction() -> Vector2:
 	return Vector2(
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
-		-Input.get_action_strength("ui_jump") if is_on_floor() and Input.is_action_just_pressed("ui_jump") else 0.0
+		-Input.get_action_strength("ui_jump") * 2 if is_on_floor() and Input.is_action_just_pressed("ui_jump") else 0.0
 	)
 
 func calculate_move_velocity(
@@ -43,8 +43,9 @@ func animate():
 
 
 func _on_EnnemyDetector_body_entered(body):
-	if body != get_parent():
+	if body.get_collision_mask_bit(0):
 		die()
 
 func die():
 	queue_free()
+	Global.lose()
