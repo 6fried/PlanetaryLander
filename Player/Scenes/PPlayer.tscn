@@ -106,13 +106,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=26]
-radius = 56.0
-height = 48.0
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 48, 80 )
 
 [sub_resource type="SegmentShape2D" id=27]
 a = Vector2( -64, 80 )
-b = Vector2( 48, 80 )
+b = Vector2( -64, -80 )
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 448, 288 )
@@ -127,8 +126,16 @@ animation = "left_walk"
 position = Vector2( -8, 0 )
 shape = SubResource( 26 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-shape = SubResource( 27 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EnnemyDetector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnnemyDetector"]
+position = Vector2( 112, 0 )
+shape = SubResource( 27 )
+
+[connection signal="body_entered" from="EnnemyDetector" to="." method="_on_EnnemyDetector_body_entered"]

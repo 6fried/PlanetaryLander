@@ -1,60 +1,432 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Player/Scenes/PPlayer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://assets/super_pixel_cave/style_A/PNG/bg2.png" type="Texture" id=2]
 [ext_resource path="res://Lands/Scenes/Land5.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Lands/Scenes/Land11.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Lands/Scenes/Land7.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Lands/Scenes/Land10.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Lands/Scenes/Land3.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Lands/Scenes/Land6.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Lands/Scenes/Land8.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player/Scenes/Coin.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Lands/Scenes/Land9.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Lands/Scenes/Land4.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Lands/Scenes/Land1.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Player/Scenes/Ennemie.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Lands/Scenes/Land2.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/super_pixel_cave/style_A/PNG/bg1.png" type="Texture" id=14]
+[ext_resource path="res://assets/super_pixel_cave/style_A/PNG/bg3.png" type="Texture" id=15]
+[ext_resource path="res://Platformer/Scripts/Platformer.gd" type="Script" id=16]
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( 56, 0 )
+b = Vector2( -56, 0 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( 112, 0 )
+b = Vector2( -112, 0 )
+
+[sub_resource type="SegmentShape2D" id=3]
+b = Vector2( 0, -192 )
 
 [node name="Platformer" type="Node2D"]
+script = ExtResource( 16 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 512, 296 )
-scale = Vector2( 1.28805, 1.33929 )
+[node name="bg3" type="Sprite" parent="."]
+position = Vector2( 4112, -500 )
+scale = Vector2( 25.7, 11.9565 )
+texture = ExtResource( 15 )
+
+[node name="bg2" type="Sprite" parent="."]
+position = Vector2( 4112, -500 )
+scale = Vector2( 25.7, 11.9565 )
 texture = ExtResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 552, 176 )
+[node name="bg1" type="Sprite" parent="."]
+position = Vector2( 4122, -488 )
+scale = Vector2( 25.7375, 11.8261 )
+texture = ExtResource( 14 )
 
-[node name="Lands" type="Node2D" parent="."]
+[node name="Decos" type="StaticBody2D" parent="."]
+collision_layer = 4
 
-[node name="Land1" parent="Lands" instance=ExtResource( 12 )]
-position = Vector2( 320, 512 )
+[node name="deco1" parent="Decos" instance=ExtResource( 8 )]
+position = Vector2( 824, 472 )
+
+[node name="deco2" parent="Decos" instance=ExtResource( 8 )]
+position = Vector2( 4968, -192 )
+
+[node name="deco3" parent="Decos" instance=ExtResource( 8 )]
+position = Vector2( 536, 472 )
+
+[node name="deco4" parent="Decos" instance=ExtResource( 8 )]
+position = Vector2( 4680, -192 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Decos"]
+shape = SubResource( 4 )
+
+[node name="Node2D" parent="Decos" instance=ExtResource( 12 )]
+position = Vector2( 1268, 456 )
+collision_layer = 2
+
+[node name="Node2D2" parent="Decos" instance=ExtResource( 12 )]
+position = Vector2( 1675, 64 )
+
+[node name="Node2D3" parent="Decos" instance=ExtResource( 12 )]
+position = Vector2( 5736, -208 )
+collision_layer = 4
+
+[node name="Node2D4" parent="Decos" instance=ExtResource( 12 )]
+position = Vector2( 5696, -616 )
+collision_layer = 4
+
+[node name="Lands" type="StaticBody2D" parent="."]
+collision_layer = 4
 
 [node name="Land2" parent="Lands" instance=ExtResource( 13 )]
-position = Vector2( 56, 488 )
+position = Vector2( 718, 680 )
 
 [node name="Land3" parent="Lands" instance=ExtResource( 7 )]
-position = Vector2( 728, 488 )
+position = Vector2( 3864, -48 )
 
 [node name="Land4" parent="Lands" instance=ExtResource( 11 )]
-position = Vector2( 976, 476 )
+position = Vector2( 840, 760 )
 
 [node name="Land5" parent="Lands" instance=ExtResource( 3 )]
-position = Vector2( 1192, 536 )
-
-[node name="Land6" parent="Lands" instance=ExtResource( 8 )]
-position = Vector2( 1312, 518 )
+position = Vector2( 832, 448 )
 
 [node name="Land7" parent="Lands" instance=ExtResource( 5 )]
-position = Vector2( 1448, 528 )
-
-[node name="Land8" parent="Lands" instance=ExtResource( 9 )]
-position = Vector2( 1568, 536 )
+position = Vector2( 472, 576 )
 
 [node name="Land9" parent="Lands" instance=ExtResource( 10 )]
-position = Vector2( 1688, 518 )
+position = Vector2( 64, 560 )
+
+[node name="Land12" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 990, 560 )
+
+[node name="Land16" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1502, 560 )
+
+[node name="Land17" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1374, 560 )
+
+[node name="Land22" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1213, 347 )
+
+[node name="Land18" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1246, 560 )
+
+[node name="Land21" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1090, 347 )
+
+[node name="Land19" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1118, 560 )
+
+[node name="Land15" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 862, 560 )
 
 [node name="Land10" parent="Lands" instance=ExtResource( 6 )]
-position = Vector2( 192, 512 )
+position = Vector2( 192, 560 )
+
+[node name="Land13" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 1630, 560 )
+
+[node name="Land23" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 1346, 347 )
+
+[node name="Land14" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 730, 560 )
+flip_h = true
+
+[node name="Land6" parent="Lands" instance=ExtResource( 13 )]
+position = Vector2( 2816, -64 )
+
+[node name="Land36" parent="Lands" instance=ExtResource( 13 )]
+position = Vector2( 3040, -64 )
+
+[node name="Land37" parent="Lands" instance=ExtResource( 13 )]
+position = Vector2( 3256, -64 )
+
+[node name="Land38" parent="Lands" instance=ExtResource( 13 )]
+position = Vector2( 3472, -64 )
+
+[node name="Land39" parent="Lands" instance=ExtResource( 13 )]
+position = Vector2( 3696, -64 )
+
+[node name="Land28" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1946, -55 )
+
+[node name="Land29" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 2458, -55 )
+
+[node name="Land30" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 2330, -55 )
+
+[node name="Land31" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 2202, -55 )
+
+[node name="Land32" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 2074, -55 )
+
+[node name="Land33" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1818, -55 )
+
+[node name="Land34" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 2586, -55 )
+
+[node name="Land35" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 1686, -55 )
+flip_h = true
+
+[node name="Land20" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 958, 347 )
+flip_h = true
+
+[node name="Land24" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1453, 145 )
+
+[node name="Land25" parent="Lands" instance=ExtResource( 10 )]
+position = Vector2( 1330, 145 )
+
+[node name="Land26" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 1586, 145 )
+
+[node name="Land27" parent="Lands" instance=ExtResource( 6 )]
+position = Vector2( 1198, 145 )
+flip_h = true
 
 [node name="Land11" parent="Lands" instance=ExtResource( 4 )]
-position = Vector2( 494.5, 672 )
+position = Vector2( -120, 496 )
+scale = Vector2( 1, 1.5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lands"]
+position = Vector2( -8, 24 )
+polygon = PoolVector2Array( 8, 512, 264, 520, 264, 600, 0, 600, -192, 584, -192, 128, -168, 480, -88, 496 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Lands"]
+position = Vector2( 592, 64 )
+polygon = PoolVector2Array( -24, 472, -128, 576, -216, 480, -96, 480 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Lands"]
+position = Vector2( 992, 56 )
+polygon = PoolVector2Array( 696, 552, -312, 552, -328, 488, 704, 488 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Lands"]
+position = Vector2( 384, -200 )
+polygon = PoolVector2Array( 504, 536, 1032, 536, 1016, 600, 528, 600 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Lands"]
+position = Vector2( 624, -408 )
+polygon = PoolVector2Array( 504, 536, 1032, 536, 1016, 600, 528, 600 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lands"]
+position = Vector2( 2816, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lands"]
+position = Vector2( 3040, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Lands"]
+position = Vector2( 3256, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Lands"]
+position = Vector2( 3472, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Lands"]
+position = Vector2( 3696, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Lands"]
+position = Vector2( 3864, -72 )
+shape = SubResource( 2 )
+
+[node name="Land40" parent="Lands" instance=ExtResource( 4 )]
+position = Vector2( 8168, -740 )
+scale = Vector2( 1, 1.5 )
+
+[node name="Lands2" type="StaticBody2D" parent="."]
+position = Vector2( 4144, -664 )
+collision_layer = 4
+
+[node name="Land3" parent="Lands2" instance=ExtResource( 7 )]
+position = Vector2( 3864, -48 )
+
+[node name="Land5" parent="Lands2" instance=ExtResource( 3 )]
+position = Vector2( 832, 448 )
+
+[node name="Land7" parent="Lands2" instance=ExtResource( 5 )]
+position = Vector2( 472, 576 )
+
+[node name="Land9" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 64, 560 )
+
+[node name="Land12" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 990, 560 )
+
+[node name="Land16" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1502, 560 )
+
+[node name="Land17" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1374, 560 )
+
+[node name="Land22" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1213, 347 )
+
+[node name="Land18" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1246, 560 )
+
+[node name="Land21" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1090, 347 )
+
+[node name="Land19" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1118, 560 )
+
+[node name="Land15" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 862, 560 )
+
+[node name="Land10" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 192, 560 )
+
+[node name="Land13" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 1630, 560 )
+
+[node name="Land23" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 1346, 347 )
+
+[node name="Land14" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 730, 560 )
+flip_h = true
+
+[node name="Land6" parent="Lands2" instance=ExtResource( 13 )]
+position = Vector2( 2816, -64 )
+
+[node name="Land36" parent="Lands2" instance=ExtResource( 13 )]
+position = Vector2( 3040, -64 )
+
+[node name="Land37" parent="Lands2" instance=ExtResource( 13 )]
+position = Vector2( 3256, -64 )
+
+[node name="Land38" parent="Lands2" instance=ExtResource( 13 )]
+position = Vector2( 3472, -64 )
+
+[node name="Land39" parent="Lands2" instance=ExtResource( 13 )]
+position = Vector2( 3696, -64 )
+
+[node name="Land28" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1946, -55 )
+
+[node name="Land29" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 2458, -55 )
+
+[node name="Land30" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 2330, -55 )
+
+[node name="Land31" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 2202, -55 )
+
+[node name="Land32" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 2074, -55 )
+
+[node name="Land33" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1818, -55 )
+
+[node name="Land34" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 2586, -55 )
+
+[node name="Land35" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 1686, -55 )
+flip_h = true
+
+[node name="Land20" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 958, 347 )
+flip_h = true
+
+[node name="Land24" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1453, 145 )
+
+[node name="Land25" parent="Lands2" instance=ExtResource( 10 )]
+position = Vector2( 1330, 145 )
+
+[node name="Land26" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 1586, 145 )
+
+[node name="Land27" parent="Lands2" instance=ExtResource( 6 )]
+position = Vector2( 1198, 145 )
+flip_h = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lands2"]
+position = Vector2( -8, 24 )
+polygon = PoolVector2Array( 8, 512, 264, 520, 264, 600, 0, 600 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Lands2"]
+position = Vector2( 592, 64 )
+polygon = PoolVector2Array( -24, 472, -128, 576, -216, 480, -96, 480 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Lands2"]
+position = Vector2( 992, 56 )
+polygon = PoolVector2Array( 696, 552, -312, 552, -328, 488, 704, 488 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Lands2"]
+position = Vector2( 1944, -560 )
+polygon = PoolVector2Array( 696, 552, -312, 552, -328, 488, 704, 488 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Lands2"]
+position = Vector2( -2200, 104 )
+polygon = PoolVector2Array( 696, 552, -312, 552, -328, 488, 704, 488 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Lands2"]
+position = Vector2( 384, -200 )
+polygon = PoolVector2Array( 504, 536, 1032, 536, 1016, 600, 528, 600 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Lands2"]
+position = Vector2( 624, -408 )
+polygon = PoolVector2Array( 504, 536, 1032, 536, 1016, 600, 528, 600 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lands2"]
+position = Vector2( 2816, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lands2"]
+position = Vector2( 3040, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Lands2"]
+position = Vector2( 3256, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Lands2"]
+position = Vector2( 3472, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Lands2"]
+position = Vector2( 3696, -72 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Lands2"]
+position = Vector2( 3864, -72 )
+shape = SubResource( 2 )
+
+[node name="Coin" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1328, 496 )
+scale = Vector2( 0.05, 0.05 )
+collision_layer = 8
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 8120, -736 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2232, -184 )
+scale = Vector2( 0.5, 0.5 )
+collision_mask = 14
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 1
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

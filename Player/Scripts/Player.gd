@@ -1,10 +1,8 @@
 extends KinematicBody2D
 
+export (int) var altitude = 1000
 onready var velocity = Vector2.ZERO
 onready var speed = 100
-
-func _ready():
-	pass
 
 func _input(_event):
 	#Get velocity Input
@@ -24,5 +22,4 @@ func _process(delta):
 		$AnimatedSprite.play("default")
 	else:
 		$AnimatedSprite.set("frame", 0)
-	position.x+=velocity.x * delta
-	position.y+=velocity.y * delta
+	move_and_slide(velocity)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/Moon_A2_zps1972e999.png" type="Texture" id=1]
 [ext_resource path="res://assets/Moon_B_zps951ca5b3.png" type="Texture" id=2]
+[ext_resource path="res://PlanetLand/Scripts/PlanetLand.gd" type="Script" id=3]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Moon_B_zps951ca5b3.png 0"
@@ -309,7 +310,20 @@
 [sub_resource type="CircleShape2D" id=2]
 radius = 141.849
 
+[sub_resource type="CircleShape2D" id=3]
+radius = 30.9846
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 191.296, 125.065 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 31.619, 33.1879 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 31.619, 61.4767 )
+
 [node name="PlanetLand" type="Area2D"]
+script = ExtResource( 3 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0 )
@@ -326,8 +340,118 @@ tile_set = SubResource( 1 )
 format = 1
 tile_data = PoolIntArray( 3, 8, 0, 7, 8, 0, 9, 11, 0, 10, 11, 0, 11, 11, 0, 12, 11, 0, 13, 11, 0, 14, 11, 0, 15, 11, 0, 65536, 31, 0, 65537, 8, 0, 65539, 31, 0, 65545, 11, 0, 65546, 11, 0, 65547, 11, 0, 65548, 11, 0, 65549, 11, 0, 65550, 11, 0, 65551, 11, 0, 131073, 31, 0, 131075, 8, 0, 131076, 31, 0, 131078, 31, 0, 131079, 31, 0, 131081, 8, 0, 131082, 11, 0, 131083, 11, 0, 131084, 11, 0, 131085, 11, 0, 131086, 11, 0, 131087, 11, 0, 196609, 31, 0, 196610, 8, 0, 196611, 31, 0, 196613, 31, 0, 196615, 8, 0, 196618, 11, 0, 196619, 11, 0, 196620, 11, 0, 196621, 11, 0, 196622, 11, 0, 196623, 11, 0, 262144, 8, 0, 262147, 8, 0, 262148, 31, 0, 262149, 31, 0, 262152, 31, 0, 262153, 31, 0, 262154, 19, 0, 262155, 11, 0, 262156, 18, 0, 262157, 18, 0, 262158, 37, 0, 262159, 8, 0, 327681, 8, 0, 327682, 31, 0, 327684, 31, 0, 327686, 8, 0, 327688, 31, 0, 327690, 31, 0, 327691, 18, 0, 327692, 18, 0, 327693, 18, 0, 327694, 18, 0, 327695, 18, 0, 393217, 31, 0, 393218, 8, 0, 393219, 8, 0, 393223, 31, 0, 393224, 31, 0, 393226, 31, 0, 393227, 18, 0, 393228, 18, 0, 393229, 18, 0, 393230, 18, 0, 393231, 18, 0, 458752, 8, 0, 458754, 8, 0, 458755, 31, 0, 458756, 31, 0, 458757, 8, 0, 458759, 31, 0, 458760, 8, 0, 458761, 31, 0, 458762, 31, 0, 458763, 18, 0, 458764, 18, 0, 458765, 18, 0, 458766, 18, 0, 458767, 18, 0, 524289, 31, 0, 524291, 31, 0, 524292, 31, 0, 524294, 8, 0, 524297, 31, 0, 524298, 8, 0, 524299, 31, 0, 524300, 18, 0, 524301, 18, 0, 524302, 18, 0, 524303, 18, 0, 589831, 8, 0, 589832, 31, 0, 589833, 31, 0, 589834, 31, 0, 589835, 31, 0, 589836, 31, 0, 589837, 8, 0, 589838, 31, 0, 589839, 8, 0 )
 
-[node name="Area2D" type="Area2D" parent="Land"]
+[node name="LandingZone" type="Area2D" parent="Land"]
 position = Vector2( 874.41, 443.229 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/LandingZone"]
+position = Vector2( 0, -20.873 )
 shape = SubResource( 2 )
+
+[node name="DeadZone" type="Area2D" parent="Land"]
+position = Vector2( 874.41, 443.229 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -774.159, -89.847 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -843.133, -154.064 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -843.133, 38.5873 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -715.888, 38.5873 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -715.888, -20.873 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -650.481, -20.873 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -650.481, -154.064 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -715.888, -220.66 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -650.481, -284.877 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -265.178, -284.877 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -388.856, -409.017 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -650.481, -409.017 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -774.159, -343.61 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -388.856, -220.66 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -455.451, -89.847 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -517.29, 38.5873 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -455.451, 103.994 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -388.856, 163.454 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -327.017, 38.5873 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -198.583, 103.994 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -13.0812, 163.454 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( 116.542, 163.454 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( 116.542, -154.064 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -40.2725, -313.395 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -140.326, -154.064 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="Land/DeadZone"]
+position = Vector2( -265.178, -376.982 )
+shape = SubResource( 6 )
+
+[connection signal="body_entered" from="Land/DeadZone" to="." method="_on_DeadZone_body_entered"]
