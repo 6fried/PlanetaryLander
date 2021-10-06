@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/bahnschrift.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/paul-chadeisson-testspeed-0340-1920.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/28496.jpg" type="Texture" id=2]
 [ext_resource path="res://UI/Scripts/MainMenu.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
@@ -17,10 +17,10 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -488.0
-margin_top = -208.0
-margin_right = 1432.0
-margin_bottom = 878.0
+margin_left = -760.0
+margin_top = -320.0
+margin_right = 3080.0
+margin_bottom = 2080.0
 texture = ExtResource( 2 )
 
 [node name="Play" type="Button" parent="."]
@@ -34,6 +34,7 @@ margin_right = 92.0
 margin_bottom = -61.0
 custom_fonts/font = SubResource( 1 )
 text = "PLAY"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -49,6 +50,7 @@ margin_right = 166.0
 margin_bottom = 59.0
 custom_fonts/font = SubResource( 1 )
 text = "TUTORIALS"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,6 +66,7 @@ margin_right = 80.0
 margin_bottom = 195.0
 custom_fonts/font = SubResource( 1 )
 text = "EXIT"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

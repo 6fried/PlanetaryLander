@@ -1,5 +1,6 @@
-extends Area2D
+extends Node2D
+
+var dead_zone
 
 func _on_DeadZone_body_entered(body):
-	if body.altitude <= 500:
-		$"/root/Global".lose()
+	dead_zone = true

@@ -20,13 +20,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Nasa Planetary Lander"
-run/main_scene="res://UI/Scenes/MainMenu.tscn"
+config/name="MarsLander"
+run/main_scene="res://UI/Scenes/SplashScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://Autoload/Global.gd"
+Pad="*res://Autoload/Pad.gd"
 
 [display]
 
@@ -66,6 +67,8 @@ ui_alt+={
 2d_physics/layer_2="ennemies"
 2d_physics/layer_3="environment"
 2d_physics/layer_4="coins"
+2d_physics/layer_6="obstacles"
+2d_physics/layer_7="dead_zone"
 
 [physics]
 

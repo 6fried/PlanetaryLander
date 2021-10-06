@@ -21,6 +21,7 @@ margin_right = 112.0
 margin_bottom = 35.5
 custom_fonts/font = SubResource( 1 )
 text = "Restart"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -36,6 +37,7 @@ margin_right = 161.0
 margin_bottom = 155.0
 custom_fonts/font = SubResource( 1 )
 text = "Main Menu"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

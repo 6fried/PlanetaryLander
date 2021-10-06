@@ -1,15 +1,19 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://Player/Scenes/PPlayer.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/super_pixel_cave/style_A/PNG/bg2.png" type="Texture" id=2]
-[ext_resource path="res://assets/portal.png" type="Texture" id=3]
+[ext_resource path="res://Player/Scenes/Astronaut.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Platformer/Assets/bg/bg2.png" type="Texture" id=2]
+[ext_resource path="res://Platformer/Assets/portal.png" type="Texture" id=3]
+[ext_resource path="res://Lands/Scenes/Land11.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Platformer/Scripts/LifeBarLayer.gd" type="Script" id=5]
+[ext_resource path="res://Platformer/lifebar/HPBars1_0047_Package-----------------.png" type="Texture" id=6]
+[ext_resource path="res://Platformer/lifebar/HB_Frames_0212_Package-----------------.png" type="Texture" id=7]
 [ext_resource path="res://Lands/Scenes/Land6.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Scenes/Coin.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Platformer/Assets/bg/bg3.png" type="Texture" id=10]
+[ext_resource path="res://Platformer/Assets/bg/bg1.png" type="Texture" id=11]
 [ext_resource path="res://Player/Scenes/Ennemie.tscn" type="PackedScene" id=12]
-[ext_resource path="res://assets/super_pixel_cave/style_A/PNG/bg1.png" type="Texture" id=14]
-[ext_resource path="res://assets/super_pixel_cave/style_A/PNG/bg3.png" type="Texture" id=15]
 [ext_resource path="res://Platformer/Scripts/Platformer.gd" type="Script" id=16]
-[ext_resource path="res://assets/spritesheet.png" type="Texture" id=17]
+[ext_resource path="res://Platformer/Assets/spritesheet.png" type="Texture" id=17]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 75.0
@@ -192,6 +196,10 @@ points = PoolVector2Array( 32, 32, 192, 32, 96, 96 )
 a = Vector2( 0, 640 )
 b = Vector2( 5120, 640 )
 
+[sub_resource type="SegmentShape2D" id=12]
+a = Vector2( 0, 608 )
+b = Vector2( 0, 0 )
+
 [node name="Platformer" type="Node2D"]
 script = ExtResource( 16 )
 
@@ -209,20 +217,39 @@ position = Vector2( 536, 472 )
 [node name="deco4" parent="Decos" instance=ExtResource( 8 )]
 position = Vector2( 4680, -192 )
 
+[node name="Land11" parent="Decos" instance=ExtResource( 4 )]
+position = Vector2( -56, 488 )
+scale = Vector2( 1, 2 )
+
+[node name="Sprite" type="Sprite" parent="Decos"]
+self_modulate = Color( 1, 0, 0, 1 )
+position = Vector2( -168, 376 )
+texture = ExtResource( 3 )
+
 [node name="Node2D" parent="Decos" instance=ExtResource( 12 )]
-position = Vector2( 1268, 456 )
+position = Vector2( 1248, 484 )
 
 [node name="Node2D2" parent="Decos" instance=ExtResource( 12 )]
-position = Vector2( 1640, 16 )
+position = Vector2( 1616, 24 )
 
 [node name="Node2D3" parent="Decos" instance=ExtResource( 12 )]
-position = Vector2( 5736, -184 )
+position = Vector2( 5736, -160 )
 
 [node name="Node2D4" parent="Decos" instance=ExtResource( 12 )]
-position = Vector2( 5696, -624 )
+position = Vector2( 5712, -600 )
+
+[node name="Node2D5" parent="Decos" instance=ExtResource( 12 )]
+position = Vector2( 8728, -1508.8 )
+
+[node name="Node2D6" parent="Decos" instance=ExtResource( 12 )]
+position = Vector2( 8744, -1328 )
 
 [node name="Coin" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1328, 496 )
+scale = Vector2( 0.05, 0.05 )
+
+[node name="Coin2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5800, -136 )
 scale = Vector2( 0.05, 0.05 )
 
 [node name="Gate" type="StaticBody2D" parent="."]
@@ -247,10 +274,10 @@ tile_set = SubResource( 10 )
 collision_layer = 4
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -786344, 0, 0, -786343, 0, 0, -786342, 2, 0, -786341, 2, 0, -786340, 2, 0, -786339, 2, 0, -786338, 2, 0, -786337, 2, 0, -786336, 2, 0, -786335, 2, 0, -786334, 2, 0, -786333, 2, 0, -786332, 2, 0, -786331, 2, 0, -786330, 2, 0, -786329, 2, 0, -786328, 0, 0, -786324, 3, 0, -786321, 3, 0, -786318, 3, 0, -786314, 3, 0, -786311, 3, 0, -786310, 3, 0, -786309, 3, 0, -786308, 1, 0, -589741, 2, 0, -589740, 2, 0, -589739, 2, 0, -589738, 2, 0, -589737, 2, 0, -589736, 2, 0, -589735, 0, 0, -393137, 2, 0, -393136, 2, 0, -393135, 2, 0, -393134, 2, 0, -393133, 2, 0, -393132, 2, 0, -393131, 0, 0, -131048, 0, 0, -131047, 2, 0, -131046, 2, 0, -131045, 2, 0, -131044, 2, 0, -131043, 2, 0, -131042, 2, 0, -131041, 2, 0, -131040, 2, 0, -131039, 2, 0, -131038, 2, 0, -131037, 2, 0, -131036, 2, 0, -131035, 2, 0, -131034, 2, 0, -131033, 2, 0, -131032, 0, 0, -131029, 3, 0, -131026, 3, 0, -131023, 3, 0, -131020, 3, 0, -131017, 3, 0, -131014, 3, 0, -131013, 3, 0, -131012, 1, 0, -131008, 2, 0, -131007, 2, 0, -131006, 2, 0, -131005, 0, 0, -131002, 6, 0, -130997, 2, 0, -130996, 2, 0, -130995, 2, 0, -130994, 2, 0, -130993, 2, 0, -130992, 2, 0, -130991, 2, 0, -130990, 2, 0, -130989, 2, 0, -130988, 2, 0, -130987, 2, 0, -130986, 2, 0, -130985, 2, 0, -130984, 2, 0, -130982, 0, 0, 65554, 2, 0, 65555, 2, 0, 65556, 2, 0, 65557, 2, 0, 65558, 2, 0, 65559, 2, 0, 65560, 0, 0, 327677, 5, 0, 262158, 2, 0, 262159, 2, 0, 262160, 2, 0, 262161, 2, 0, 262162, 2, 0, 262163, 2, 0, 262164, 0, 0, 524289, 2, 0, 524290, 0, 0, 524294, 6, 0, 524298, 2, 0, 524299, 2, 0, 524300, 2, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 2, 0, 524307, 2, 0, 524308, 2, 0, 524309, 2, 0, 524310, 2, 0, 524311, 2, 0, 524312, 2, 0, 524313, 0, 0 )
+tile_data = PoolIntArray( -1507262, 4, 0, -1507259, 4, 0, -1507252, 6, 0, -1507247, 6, 0, -1441731, 6, 0, -1376170, 6, 0, -1310663, 6, 0, -1310628, 6, 0, -1179595, 6, 0, -1179552, 6, 0, -1048476, 6, 0, -1048472, 4, 0, -1048470, 4, 0, -982989, 6, 0, -982932, 4, 0, -917412, 4, 0, -917409, 4, 0, -917408, 4, 0, -917388, 4, 0, -851933, 6, 0, -786383, 6, 0, -786344, 0, 0, -786343, 0, 0, -786342, 2, 0, -786341, 2, 0, -786339, 0, 0, -786324, 3, 0, -786316, 3, 0, -786315, 3, 0, -786314, 3, 0, -786311, 3, 0, -786310, 3, 0, -786309, 3, 0, -786308, 1, 0, -655330, 6, 0, -589785, 6, 0, -589778, 6, 0, -589741, 2, 0, -589740, 2, 0, -589739, 2, 0, -589738, 2, 0, -589737, 2, 0, -589736, 2, 0, -589735, 0, 0, -393190, 6, 0, -393173, 6, 0, -393137, 2, 0, -393136, 2, 0, -393135, 2, 0, -393134, 2, 0, -393133, 2, 0, -393132, 2, 0, -393131, 0, 0, -262070, 6, 0, -131048, 0, 0, -131047, 2, 0, -131046, 2, 0, -131045, 2, 0, -131044, 2, 0, -131043, 2, 0, -131042, 2, 0, -131041, 2, 0, -131040, 2, 0, -131039, 2, 0, -131038, 2, 0, -131037, 2, 0, -131036, 2, 0, -131035, 2, 0, -131034, 2, 0, -131033, 2, 0, -131032, 0, 0, -131029, 3, 0, -131026, 3, 0, -131023, 3, 0, -131020, 3, 0, -131017, 3, 0, -131014, 3, 0, -131013, 3, 0, -131012, 1, 0, -131008, 2, 0, -131007, 2, 0, -131006, 2, 0, -131005, 0, 0, -131002, 6, 0, -130997, 2, 0, -130996, 2, 0, -130995, 2, 0, -130994, 2, 0, -130993, 2, 0, -130992, 2, 0, -130991, 2, 0, -130990, 2, 0, -130989, 2, 0, -130988, 2, 0, -130987, 2, 0, -130986, 2, 0, -130985, 2, 0, -130984, 2, 0, -130982, 0, 0, 65554, 2, 0, 65555, 2, 0, 65556, 2, 0, 65557, 2, 0, 65558, 2, 0, 65559, 2, 0, 65560, 0, 0, 262158, 2, 0, 262159, 2, 0, 262160, 2, 0, 262161, 2, 0, 262162, 2, 0, 262163, 2, 0, 262164, 0, 0, 524289, 2, 0, 524290, 0, 0, 524294, 6, 0, 524298, 2, 0, 524299, 2, 0, 524300, 2, 0, 524301, 2, 0, 524302, 2, 0, 524303, 2, 0, 524304, 2, 0, 524305, 2, 0, 524306, 2, 0, 524307, 2, 0, 524308, 2, 0, 524309, 2, 0, 524310, 2, 0, 524311, 2, 0, 524312, 2, 0, 524313, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 120, 472 )
+position = Vector2( 104, 504 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -267,7 +294,7 @@ motion_mirroring = Vector2( 2560, 1472 )
 
 [node name="bg3" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
 scale = Vector2( 8, 8 )
-texture = ExtResource( 15 )
+texture = ExtResource( 10 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground2"]
@@ -284,13 +311,42 @@ motion_mirroring = Vector2( 2560, 1472 )
 
 [node name="bg1" type="Sprite" parent="ParallaxBackground2/ParallaxLayer3"]
 scale = Vector2( 8, 8 )
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, -32 )
 shape = SubResource( 11 )
 
+[node name="Limit" type="StaticBody2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limit"]
+position = Vector2( 64, 0 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Limit"]
+position = Vector2( 8264, -1312 )
+shape = SubResource( 12 )
+
+[node name="LifeBarLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
+
+[node name="TextureProgress" type="TextureProgress" parent="LifeBarLayer"]
+margin_top = 32.0
+margin_right = 228.0
+margin_bottom = 59.0
+rect_scale = Vector2( 2, 1 )
+step = 0.0
+value = 100.0
+texture_under = ExtResource( 7 )
+texture_progress = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="body_entered" from="Gate/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="LifeBarLayer" to="." method="_on_LifeBarLayer_timeout"]

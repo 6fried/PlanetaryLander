@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/spaceBackground.png" type="Texture" id=2]
+[ext_resource path="res://assets/465933.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/1.png" type="Texture" id=3]
 [ext_resource path="res://Landing/Scripts/Landing.gd" type="Script" id=4]
+[ext_resource path="res://UI/Scenes/CommandHUD.tscn" type="PackedScene" id=5]
 
 [sub_resource type="TileSet" id=1]
 0/name = "1.png 0"
@@ -182,8 +183,8 @@ extents = Vector2( 240, 10 )
 script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 736, 400 )
-scale = Vector2( 0.766667, 0.75 )
+position = Vector2( 704, 352 )
+scale = Vector2( 0.6, 0.5 )
 texture = ExtResource( 2 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -192,16 +193,17 @@ position = Vector2( 0, 592 )
 [node name="TileMap" type="TileMap" parent="StaticBody2D"]
 tile_set = SubResource( 1 )
 format = 1
-tile_data = PoolIntArray( -262126, 7, 0, -262122, 0, 0, -131074, 10, 0, -131066, 3, 0, -65526, 6, 0, -65522, 6, 0, -65518, 6, 0 )
+tile_data = PoolIntArray( -131074, 10, 0, -196590, 2, 0, -196586, 2, 0, -131066, 3, 0, -65526, 6, 0, -65522, 6, 0, -65518, 6, 0, -65517, 6, 0 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 0, 16 )
-polygon = PoolVector2Array( 96, -104, 72, -80, 56, -16, 32, -16, 0, 8, 1440, 0, 1472, 0, 1472, -232, 1472, -248, 1464, -160, 1440, -141.161, 1440, -256, 1424, -256, 1400, -232, 1392, -240, 1376, -240, 1344, -192, 1336, -144, 1312, -144, 1280, -128, 1264, -104, 1256, -88, 1240, -88, 1240, -96, 1208, -88, 1185.68, -54.44, 1168, -56, 1160, -40, 1160, -32, 664, -32, 664, -56, 664, -64, 656, -72, 648, -96, 632, -96, 600, -72, 544, -104, 496, -120, 448, -88, 429.786, -44.7321, 408, -48, 392, -32, 384, -8, 368, -8, 360, -40, 320, -48, 304, -80, 280, -104, 240, -136, 216, -144, 200, -176, 168, -176, 168, -128, 144, -128, 128, -104 )
+polygon = PoolVector2Array( 96, -104, 72, -80, 56, -16, 32, -16, 0, 8, 1440, 0, 1472, 0, 1472, -120, 1456, -120, 1448, -88, 1440, -120, 1440, -141.161, 1384, -184, 1344, -192, 1312, -200, 1280, -184, 1272, -128, 1264, -128, 1216, -128, 1184, -112, 1185.68, -54.44, 1168, -56, 1160, -40, 1160, -32, 664, -32, 664, -56, 664, -64, 656, -72, 648, -96, 632, -96, 600, -72, 544, -104, 496, -120, 448, -88, 429.786, -44.7321, 408, -48, 392, -32, 384, -8, 368, -8, 360, -40, 320, -48, 304, -80, 280, -104, 240, -136, 216, -144, 200, -176, 168, -176, 168, -128, 144, -128, 128, -104 )
 
 [node name="DeadZone" type="Area2D" parent="."]
 position = Vector2( 0, 592 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DeadZone"]
+visible = false
 polygon = PoolVector2Array( 96, -104, 72, -80, 56, -16, 32, -16, 0, 8, 1440, 0, 1472, 0, 1472, -248, 1456, -168, 1448, -160, 1448, -256, 1424, -256, 1400, -232, 1392, -240, 1376, -240, 1344, -192, 1336, -144, 1312, -144, 1280, -128, 1264, -104, 1256, -88, 1240, -88, 1240, -96, 1208, -88, 1185.68, -54.44, 1168, -56, 1160, -40, 1160, 0, 677, 0, 672, -32, 672, -56, 664, -64, 664, -80, 648, -96, 632, -96, 600, -72, 544, -104, 496, -120, 448, -88, 429.786, -44.7321, 408, -48, 392, -32, 384, -8, 368, -8, 360, -40, 320, -48, 304, -80, 280, -104, 240, -136, 216, -144, 200, -176, 160, -176, 160, -128, 144, -128, 128, -104 )
 
 [node name="Light zone" type="Area2D" parent="."]
@@ -216,6 +218,8 @@ shape = SubResource( 2 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 512, 296 )
 current = true
+
+[node name="CommandHUD" parent="." instance=ExtResource( 5 )]
 
 [connection signal="body_entered" from="DeadZone" to="." method="_on_DeadZone_body_entered"]
 [connection signal="body_entered" from="Light zone" to="." method="_on_Light_zone_body_entered"]

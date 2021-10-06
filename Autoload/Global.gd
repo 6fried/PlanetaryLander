@@ -2,7 +2,7 @@ extends Node
 
 var current_scene = null
 var root = null
-var altitude = 0
+var altitude = 10
 var coin = true
 
 func goto_scene(path):
@@ -17,6 +17,8 @@ func _deferred_goto_scene(path):
 	current_scene = s.instance()
 	root.add_child(current_scene)
 	get_tree().set_current_scene(current_scene)
+
+
 
 
 func lose():

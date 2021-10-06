@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/bahnschrift.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/spaceBackground.png" type="Texture" id=2]
+[ext_resource path="res://assets/28496.jpg" type="Texture" id=2]
 [ext_resource path="res://UI/Scenes/HUD.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
@@ -18,8 +18,10 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1920.0
-margin_bottom = 1086.0
+margin_left = -611.0
+margin_top = -344.0
+margin_right = 3229.0
+margin_bottom = 2056.0
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
