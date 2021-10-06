@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/rocket/toppng.com-rocket-ship-sprite-sheet-396x308.png" type="Texture" id=1]
+[ext_resource path="res://Player/Assets/rocket/toppng.com-rocket-ship-sprite-sheet-396x308.png" type="Texture" id=1]
 [ext_resource path="res://Player/Scripts/Player.gd" type="Script" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -46,7 +46,6 @@ polygon = PoolVector2Array( 24.4614, 0.173767, 17.3181, -18.0813, 8.19049, -33.9
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-scale = Vector2( 1.2, 1.2 )
 polygon = PoolVector2Array( 24.4614, 0.173767, 17.3181, -18.0813, 8.19049, -33.9553, 0, -40, -6.49298, -34.749, -16.4142, -19.2719, -23.1607, -0.619934, -25.1449, 8.50763, -25.5418, 18.8257, -22.7638, 23.588, -21.1764, 20.0163, -7.28668, 15.2541, 1.84088, 14.8572, 9.77789, 14.4604, 20.4929, 19.6194, 23.6677, 24.3817, 25.6519, 20.0163, 25.2551, 10.095 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

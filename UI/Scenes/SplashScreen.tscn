@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/465933.jpg" type="Texture" id=1]
+[ext_resource path="res://Landing/Assets/465933.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/COOPBL.TTF" type="DynamicFontData" id=2]
 [ext_resource path="res://UI/Scripts/SplashScreen.gd" type="Script" id=3]
 

@@ -1,9 +1,9 @@
 extends KinematicBody2D
 
 signal body_entered
-export (int) var altitude = 1000
+export (int) var altitude = 11
 onready var velocity = Vector2.ZERO
-onready var speed = 100
+onready var speed = 150
 
 func _input(_event):
 	#Get velocity Input
@@ -25,6 +25,7 @@ func _physics_process(delta):
 		$AnimatedSprite.set("frame", 0)
 		$AnimatedSprite.stop()
 #	velocity = move_and_slide(velocity)
+
 	position += velocity * delta
 
 
@@ -34,4 +35,3 @@ func _on_Area2D_body_entered(body):
 
 func die():
 	queue_free()
-	Global.lose()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/Moon_A2_zps1972e999.png" type="Texture" id=1]
-[ext_resource path="res://assets/Moon_B_zps951ca5b3.png" type="Texture" id=2]
+[ext_resource path="res://PlanetLand/Assets/Moon_A2_zps1972e999.png" type="Texture" id=1]
+[ext_resource path="res://PlanetLand/Assets/Moon_B_zps951ca5b3.png" type="Texture" id=2]
 [ext_resource path="res://PlanetLand/Scripts/PlanetLand.gd" type="Script" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]

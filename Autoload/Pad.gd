@@ -8,4 +8,4 @@ var jump:bool
 var altp:bool
 var altm:bool
 var pause:bool
-
+var land:bool

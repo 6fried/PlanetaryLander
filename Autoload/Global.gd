@@ -3,7 +3,9 @@ extends Node
 var current_scene = null
 var root = null
 var altitude = 10
-var coin = true
+var coins = 0
+var latest_stage:String
+var lost_msg:String
 
 func goto_scene(path):
 	root = get_tree().get_root()
@@ -21,7 +23,8 @@ func _deferred_goto_scene(path):
 
 
 
-func lose():
+func lose(msg:String = ""):
+	lost_msg = msg
 	goto_scene("res://UI/Scenes/Lost.tscn")
 
 func win():
